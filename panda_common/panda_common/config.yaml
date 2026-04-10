@@ -14,6 +14,7 @@ FACTOR_UPDATE_TIME: "20:30"
 
 # 数据源
 DATASOURCE: tqsdk
+# DATAHUBSOURCE 可选值: tushare / ricequant / akshare / gm / xuntou
 DATAHUBSOURCE: ""
 #米筐账号密码
 MUSER: ""
@@ -22,6 +23,9 @@ MPASSWORD: ""
 TS_TOKEN: ""
 # 讯投  TOKEN
 XT_TOKEN: ''
+# 掘金量化 TOKEN
+GM_TOKEN: ''
+# AKShare 无需 TOKEN，免费开源
 # 数据源验证信息
 USER: xxxxxx
 PASSWORD: xxxxxx

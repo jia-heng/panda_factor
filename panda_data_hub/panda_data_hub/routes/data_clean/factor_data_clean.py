@@ -4,6 +4,8 @@ from typing import Dict
 
 from panda_data_hub.services.rq_factor_clean_pro_service import FactorCleanerProService
 from panda_data_hub.services.ts_factor_clean_pro_service import FactorCleanerTSProService
+from panda_data_hub.services.akshare_factor_clean_pro_service import FactorCleanerAKShareProService
+from panda_data_hub.services.gm_factor_clean_pro_service import FactorCleanerGMProService
 # from panda_data_hub.services.xt_factor_clean_pro_service import FactorCleanerXTProService
 
 router = APIRouter()
@@ -33,6 +35,20 @@ async def upsert_factor(start_date: str, end_date: str, background_tasks: Backgr
         background_tasks.add_task(
             tushare_service.clean_history_data,
            start_date,
+            end_date)
+    elif data_source == 'akshare':
+        akshare_service = FactorCleanerAKShareProService(config)
+        akshare_service.set_progress_callback(progress_callback)
+        background_tasks.add_task(
+            akshare_service.clean_history_data,
+            start_date,
+            end_date)
+    elif data_source == 'gm':
+        gm_service = FactorCleanerGMProService(config)
+        gm_service.set_progress_callback(progress_callback)
+        background_tasks.add_task(
+            gm_service.clean_history_data,
+            start_date,
             end_date)
     # elif data_source == 'xuntou':
     #     xt_quant_service = FactorCleanerXTProService(config)

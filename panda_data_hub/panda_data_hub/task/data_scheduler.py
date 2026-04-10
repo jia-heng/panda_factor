@@ -11,6 +11,10 @@ from panda_data_hub.data.ricequant_stock_market_cleaner import RQStockMarketClea
 from panda_data_hub.data.ricequant_stocks_cleaner import RQStockCleaner
 from panda_data_hub.data.tushare_stocks_cleaner import TSStockCleaner
 from panda_data_hub.data.tushare_stock_market_cleaner import TSStockMarketCleaner
+from panda_data_hub.data.akshare_stocks_cleaner import AKShareStockCleaner
+from panda_data_hub.data.akshare_stock_market_cleaner import AKShareStockMarketCleaner
+from panda_data_hub.data.gm_stocks_cleaner import GMStockCleaner
+from panda_data_hub.data.gm_stock_market_cleaner import GMStockMarketCleaner
 # from panda_data_hub.data.xtquant_stock_market_cleaner import XTStockMarketCleaner
 # from panda_data_hub.data.xtquant_stocks_cleaner import XTStockCleaner
 
@@ -44,6 +48,20 @@ class DataScheduler:
                 stocks_cleaner.clean_metadata()
                 # 清洗stock_market表当日数据
                 stock_market_cleaner = TSStockMarketCleaner(self.config)
+                stock_market_cleaner.stock_market_clean_daily()
+            elif data_source == 'akshare':
+                # 清洗stock表当日数据
+                stocks_cleaner = AKShareStockCleaner(self.config)
+                stocks_cleaner.clean_metadata()
+                # 清洗stock_market表当日数据
+                stock_market_cleaner = AKShareStockMarketCleaner(self.config)
+                stock_market_cleaner.stock_market_clean_daily()
+            elif data_source == 'gm':
+                # 清洗stock表当日数据
+                stocks_cleaner = GMStockCleaner(self.config)
+                stocks_cleaner.clean_metadata()
+                # 清洗stock_market表当日数据
+                stock_market_cleaner = GMStockMarketCleaner(self.config)
                 stock_market_cleaner.stock_market_clean_daily()
             # elif data_source == 'xuntou':
             #     # 清洗stock表当日数据

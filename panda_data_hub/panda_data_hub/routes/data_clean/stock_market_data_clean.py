@@ -6,6 +6,8 @@ from panda_common.config import config
 
 from panda_data_hub.services.rq_stock_market_clean_service import StockMarketCleanRQServicePRO
 from panda_data_hub.services.ts_stock_market_clean_service import StockMarketCleanTSServicePRO
+from panda_data_hub.services.akshare_stock_market_clean_service import StockMarketCleanAKShareServicePRO
+from panda_data_hub.services.gm_stock_market_clean_service import StockMarketCleanGMServicePRO
 # from panda_data_hub.services.xt_download_service import XTDownloadService
 
 # from panda_data_hub.services.xt_stock_market_clean_service import StockMarketCleanXTServicePRO
@@ -37,6 +39,22 @@ async def upsert_stockmarket(start_date: str, end_date: str, background_tasks: B
         tushare_service.set_progress_callback(progress_callback)
         background_tasks.add_task(
             tushare_service.stock_market_history_clean,
+            start_date,
+            end_date
+        )
+    elif data_source == 'akshare':
+        akshare_service = StockMarketCleanAKShareServicePRO(config)
+        akshare_service.set_progress_callback(progress_callback)
+        background_tasks.add_task(
+            akshare_service.stock_market_history_clean,
+            start_date,
+            end_date
+        )
+    elif data_source == 'gm':
+        gm_service = StockMarketCleanGMServicePRO(config)
+        gm_service.set_progress_callback(progress_callback)
+        background_tasks.add_task(
+            gm_service.stock_market_history_clean,
             start_date,
             end_date
         )
