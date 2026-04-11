@@ -6,7 +6,7 @@ import pandas as pd
 from pymongo import UpdateOne
 
 from panda_common.handlers.database_handler import DatabaseHandler
-import tushare as ts
+import tinyshare as ts
 
 from panda_common.logger_config import logger
 from panda_data_hub.utils.mongo_utils import ensure_collection_and_indexes

@@ -3,7 +3,7 @@ from abc import ABC
 from panda_common.handlers.database_handler import DatabaseHandler
 from panda_common.logger_config import logger
 from panda_common.utils.stock_utils import get_exchange_suffix
-import tushare as ts
+import tinyshare as ts
 
 
 class TSStockCleaner(ABC):

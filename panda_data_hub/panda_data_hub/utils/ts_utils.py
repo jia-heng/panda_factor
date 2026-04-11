@@ -1,7 +1,7 @@
 import logging
 import calendar
 from datetime import datetime
-import tushare as ts
+import tinyshare as ts
 
 # 设置日志记录器
 logger = logging.getLogger(__name__)
@@ -119,7 +119,7 @@ def ts_is_trading_day(date):
             return True
         return False
     except Exception as e:
-        logger.error(f"检查交易日失败 {date}: {str(e)}")
+        logger.error(f"检查交易日失败12345 {date}: {str(e)}")
         return False
 
 def get_previous_month_dates(date_str):

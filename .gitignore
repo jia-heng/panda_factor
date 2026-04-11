@@ -62,6 +62,7 @@ yarn-error.log*
 *.swo
 *.swn
 *.bak
+.claude/
 
 # Environment variables
 .env

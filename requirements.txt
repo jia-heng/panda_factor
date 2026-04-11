@@ -16,7 +16,7 @@ scipy>=1.10.1
 statsmodels>=0.13.5
 matplotlib>=3.7.1
 seaborn>=0.13.0
-
+# https://mirrors.aliyun.com/pypi/simple
 # Trading & Market Data
 rqdatac>=2.9.0
 tqsdk>=3.2.10

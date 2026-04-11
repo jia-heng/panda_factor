@@ -147,8 +147,8 @@ class StockMarketCleanXTServicePRO(ABC):
                 on=['stock_code'],
                 how='left',
             )
-            # 迅投SDK获取历史成分股数据的接口需单独定制
-            final_df['index_component'] = 111
+            # 获取指数成分股信息
+            final_df['index_component'] = final_df['stock_code'].apply(self._get_index_component)
             final_df = final_df.rename(columns={'stock_code': 'symbol'})
             final_df['symbol'] = final_df['symbol'].apply(get_exchange_suffix)
             final_df = final_df.rename(columns={'InstrumentName': 'name'})
@@ -173,6 +173,26 @@ class StockMarketCleanXTServicePRO(ABC):
                 logger.info(f"Successfully upserted market data for date: {date_str}")
         except Exception as e:
             logger.error({e})
+
+    def _get_index_component(self, stock_code):
+        """获取股票所属指数成分股标记"""
+        try:
+            # 获取指数成分股列表
+            hs300_list = xtdata.get_stock_list_in_sector("沪深300")
+            zz500_list = xtdata.get_stock_list_in_sector("中证500")
+            zz1000_list = xtdata.get_stock_list_in_sector("中证1000")
+
+            if stock_code in hs300_list:
+                return '100'
+            elif stock_code in zz500_list:
+                return '010'
+            elif stock_code in zz1000_list:
+                return '001'
+            else:
+                return '000'
+        except Exception as e:
+            logger.warning(f"Failed to get index component for {stock_code}: {e}")
+            return '000'
 
     def clean_stock_market_name(self,hs_list):
         try:

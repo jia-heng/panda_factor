@@ -12,7 +12,7 @@ def rq_is_trading_day(date):
         # 如果返回的交易日历不为空，说明是交易日
         return len(trading_days) > 0
     except Exception as e:
-        logger.error(f"检查交易日失败 {date}: {str(e)}")
+        logger.error(f"检查交易日失败5 {date}: {str(e)}")
         return False
 
 def get_index_components(start_date, end_date):

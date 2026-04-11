@@ -56,7 +56,7 @@ def xt_is_trading_day(date):
         return len(trading_dates) > 0
 
     except Exception as e:
-        logger.error(f"检查交易日失败 {date}: {str(e)}")
+        logger.error(f"检查交易日失败6 {date}: {str(e)}")
         # 发生异常时返回False
         return False
 

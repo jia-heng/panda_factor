@@ -2,22 +2,6 @@
 ![预览](https://zynf-test.oss-cn-shanghai.aliyuncs.com/github/ezgif-84dc5a49963246.gif
 )
 
-## PandaAI首届因子大赛已启动，你的Alpha值得被看见
-“没有一个alpha，一开始就是alpha”
-
-“开始量化，最好是十年前，其次是现在”
-
-“如果没有天赋，那就一直重复”
-
-“看似不起眼的数学，会在将来的某一天，突然让你看到坚持的意义”
-
-“一切都很好，我听到自己，向上的声音”
-
-“市场会惩罚，模糊的愿望，奖励清晰的请求”
-
-“你正在寻找的因子，此刻也在寻找你”
-
-[点击报名](https://www.pandaai.online/factorhub/factorcompetition)
 ## 概述
 
 PandaFactor 提供了一系列高性能的量化算子，用于金融数据分析、技术指标计算和因子构建，并且提供了一系列的可视化图表。

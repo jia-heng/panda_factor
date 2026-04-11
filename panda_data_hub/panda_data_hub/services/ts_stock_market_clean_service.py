@@ -1,7 +1,7 @@
 from abc import ABC
 
 
-import tushare as ts
+import tinyshare as ts
 from pymongo import UpdateOne
 import traceback
 

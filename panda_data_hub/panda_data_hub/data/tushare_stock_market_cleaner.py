@@ -1,6 +1,6 @@
 import calendar
 from abc import ABC
-import tushare as ts
+import tinyshare as ts
 from pymongo import UpdateOne
 import traceback
 from datetime import datetime
@@ -147,7 +147,7 @@ class TSStockMarketCleaner(ABC):
                 return True
             return False
         except Exception as e:
-            logger.error(f"检查交易日失败 {date}: {str(e)}")
+            logger.error(f"检查交易日失败123456 {date}: {str(e)}")
             return False
 
     def get_previous_month_dates(self,date_str):
