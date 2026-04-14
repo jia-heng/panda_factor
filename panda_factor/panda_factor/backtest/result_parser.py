@@ -7,9 +7,8 @@
 from typing import Dict, Any, List, Optional
 import requests
 import pandas as pd
-from panda_common.handlers.log_handler import get_factor_logger
+from panda_common.logger_config import logger
 
-logger = get_factor_logger(__name__)
 
 
 class ResultParser:

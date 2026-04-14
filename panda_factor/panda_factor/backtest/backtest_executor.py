@@ -9,9 +9,7 @@
 from typing import Dict, Any, Optional, Literal
 import requests
 import json
-from panda_common.handlers.log_handler import get_factor_logger
-
-logger = get_factor_logger(__name__)
+from panda_common.logger_config import logger
 
 
 class BacktestExecutor:

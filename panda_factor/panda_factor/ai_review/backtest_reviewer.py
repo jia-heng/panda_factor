@@ -1,9 +1,8 @@
 """回测报告生成器 - 使用 LLM 分析回测结果"""
 from typing import Dict, Any
-from panda_common.handlers.log_handler import get_factor_logger
+from panda_common.logger_config import logger
 from panda_factor.backtest.result_parser import ResultParser
 
-logger = get_factor_logger(__name__)
 
 class BacktestReviewer:
     def __init__(self, llm_service=None):

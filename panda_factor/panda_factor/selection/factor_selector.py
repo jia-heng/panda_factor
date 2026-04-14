@@ -7,9 +7,8 @@
 from typing import List, Dict, Any, Optional
 import pandas as pd
 import panda_data
-from panda_common.handlers.log_handler import get_factor_logger
+from panda_common.logger_config import logger
 
-logger = get_factor_logger(__name__)
 
 
 class FactorSelector:

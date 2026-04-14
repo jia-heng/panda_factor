@@ -1,9 +1,8 @@
 """策略选股器 - 基于已回测验证的策略生成今日推荐股票"""
 from typing import List, Dict, Any
-from panda_common.handlers.log_handler import get_factor_logger
+from panda_common.logger_config import logger
 from panda_common.handlers.database_handler import DatabaseHandler
 
-logger = get_factor_logger(__name__)
 
 class StrategySelector:
     def __init__(self):

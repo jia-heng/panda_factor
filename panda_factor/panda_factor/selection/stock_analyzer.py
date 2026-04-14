@@ -2,10 +2,9 @@
 from typing import Dict, Any, List, Optional
 import pandas as pd
 import panda_data
-from panda_common.handlers.log_handler import get_factor_logger
+from panda_common.logger_config import logger
 from panda_common.handlers.database_handler import DatabaseHandler
 
-logger = get_factor_logger(__name__)
 
 class StockAnalyzer:
     def __init__(self):

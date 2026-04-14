@@ -1,9 +1,8 @@
 """舆情检索接口（预留）- 为后续接入新闻/舆情模块预留接口"""
 from typing import Dict, Any, List
 from abc import ABC, abstractmethod
-from panda_common.handlers.log_handler import get_factor_logger
+from panda_common.logger_config import logger
 
-logger = get_factor_logger(__name__)
 
 class SentimentInterface(ABC):
     """舆情检索接口基类"""
