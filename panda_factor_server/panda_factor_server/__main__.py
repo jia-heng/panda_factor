@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from panda_factor_server.routes import user_factor_pro
+from panda_factor_server.routes import backtest, stock_selection, ai_review
 from panda_llm.routes import chat_router
 import mimetypes
 from pathlib import Path
@@ -25,6 +26,11 @@ app.add_middleware(
 # app.include_router(user_factor.router, prefix="/api/v1", tags=["user_factors"])
 app.include_router(user_factor_pro.router, prefix="/api/v1", tags=["user_factors"])
 app.include_router(chat_router.router, prefix="/llm", tags=["panda_llm"])
+
+# 新增路由 - 1.0 版本功能
+app.include_router(backtest.router, tags=["backtest"])
+app.include_router(stock_selection.router, tags=["stock_selection"])
+app.include_router(ai_review.router, tags=["ai_review"])
 
 # 获取根目录下的panda_web
 frontend_folder = Path(__file__).resolve().parent.parent.parent / "panda_web" / "panda_web" / "static"

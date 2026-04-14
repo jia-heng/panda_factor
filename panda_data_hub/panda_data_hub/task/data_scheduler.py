@@ -12,10 +12,10 @@ from panda_data_hub.data.ricequant_stocks_cleaner import RQStockCleaner
 from panda_data_hub.data.tushare_stocks_cleaner import TSStockCleaner
 from panda_data_hub.data.tushare_stock_market_cleaner import TSStockMarketCleaner
 from panda_data_hub.data.gm_stock_market_cleaner import GMStockMarketCleaner
+from panda_data_hub.data.juejin_stocks_cleaner import JueJinStockCleaner
+from panda_data_hub.data.juejin_stock_market_cleaner import JueJinStockMarketCleaner
 from panda_data_hub.data.xtquant_stock_market_cleaner import XTStockMarketCleaner
 from panda_data_hub.data.xtquant_stocks_cleaner import XTStockCleaner
-# from panda_data_hub.data.xtquant_stock_market_cleaner import XTStockMarketCleaner
-# from panda_data_hub.data.xtquant_stocks_cleaner import XTStockCleaner
 
 
 class DataScheduler:
@@ -49,11 +49,17 @@ class DataScheduler:
                 stock_market_cleaner = TSStockMarketCleaner(self.config)
                 stock_market_cleaner.stock_market_clean_daily()
             elif data_source == 'goldminer':
-                # 使用掘金数据源
+                # 使用掘金数据源（旧版，保留兼容）
                 from panda_data_hub.data.gm_stock_market_cleaner import GMStockMarketCleaner
                 stocks_cleaner = GMStockMarketCleaner(self.config)
                 stocks_cleaner.clean_stocks_metadata()
                 stock_market_cleaner = GMStockMarketCleaner(self.config)
+                stock_market_cleaner.stock_market_clean_daily()
+            elif data_source == 'juejin':
+                # 使用掘金数据源（新版）
+                stocks_cleaner = JueJinStockCleaner(self.config)
+                stocks_cleaner.clean_metadata()
+                stock_market_cleaner = JueJinStockMarketCleaner(self.config)
                 stock_market_cleaner.stock_market_clean_daily()
             elif data_source == 'xuntou':
                 # 使用迅投数据源

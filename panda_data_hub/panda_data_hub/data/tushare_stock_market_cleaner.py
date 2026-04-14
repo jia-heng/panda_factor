@@ -9,6 +9,7 @@ from panda_common.logger_config import logger
 from panda_common.utils.stock_utils import get_exchange_suffix
 from panda_data_hub.utils.mongo_utils import ensure_collection_and_indexes
 from panda_data_hub.utils.ts_utils import calculate_upper_limit, calculate_lower_limit
+from panda_data_hub.utils.index_constituents import get_index_constituents
 
 
 class TSStockMarketCleaner(ABC):
